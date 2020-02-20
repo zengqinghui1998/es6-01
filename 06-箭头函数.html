@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px; height: 100px; background-color: red;}
+		</style>
+	</head>
+	<body>
+		<div id="box">hello</div>
+		<script type="text/javascript">
+			//es5 函数
+			function test(i){
+				return i+1;
+			}
+			let num = test(1);
+			console.log(num);//2
+			
+			//将以上代码转为箭头函数的写法
+			//1.一句话的函数体，箭头函数的写法
+			let num1 = (i) => i+1;
+			console.log(num1(1));
+			//es6 箭头函数的特点： 首先，比es5的函数写法要简便，尤其是语句比较少时
+			//如果函数体只有一句话，可以省略 大括号{} 和return
+			
+			//2.两句以上的函数体的箭头函数的写法
+			//注意：参数需要使用 小括号括起来，函数体如果有两句以上，需要使用大括号和return
+			//两个数自加求和
+			function add (x,y){
+				x++;
+				y++;
+				return x+y;
+			}
+			console.log(add(5,6));//13
+			//转写成es6格式
+			let add1 = (x,y)=>{x++;y++;return x+y;}
+			console.log(add1(2,3));//7
+			
+			//3.箭头函数可以保留this的指向  *****
+			// var cat = {
+			// 	lives:9,
+			// 	jumps:function(){
+			// 		console.log(this);//cat
+			// 		this.lives--;
+			// 	}
+			// }
+			// cat.jumps();
+			// cat.jumps();
+			// console.log(cat.lives);//7
+			
+			//将以上代码转为箭头函数的写法
+			var cat = {
+				lives:9,
+				jumps:()=>{//箭头函数保留了 cat的指针指向
+					console.log(this);//window
+					this.lives--;
+				}
+			}
+			cat.jumps();
+			cat.jumps();
+			console.log(cat.lives);//9
+			
+			//4. 箭头函数的实际应用
+			//需求：点击方块,延时2秒钟,使背景变为蓝色
+			// var oDiv = document.querySelector('div');
+			// oDiv.onclick = function(){
+			// 	setTimeout(function(){
+			// 		console.log(this);
+			// 		this.style.background = 'blue';//this 指向window
+			// 	},2000);
+			// }
+			
+			//使用箭头函数解决以上问题
+			var oDiv = document.querySelector('div');
+			oDiv.onclick = function(){
+				setTimeout(()=>{
+					console.log(this);//this指向 oDiv
+					this.style.background = 'blue';//this 
+				},2000);
+			}
+			
+		</script>
+	</body>
+</html>

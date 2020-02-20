@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//es6之后的一些特性 es7-es9
+			//1.指数运算符  **
+			console.log(2**3);//8
+			console.log(Math.pow(2,3));//8
+			
+			//2.数组方法 includes 在某个数组中是否包含该元素
+			let arr = [1,2,3,4];
+			if(arr.includes(6)){
+				console.log("数组中包含6");
+			}else{
+				console.log("数组中不包含6");
+			}
+			//includes 也适用于字符串
+			let str = '1,2,3,4';
+			if(str.includes(3)){
+				console.log("字符串中包含3");
+			}else{
+				console.log("字符串中不包含3");
+			}
+			
+			//3.Object.values  获取对象中的所有value
+			//Object.keys  获取对象中的所有key  
+			var obj = {"name":"lili","age":18,"sex":"女"};
+			console.log(Object.keys(obj));//["name", "age", "sex"]
+			console.log(Object.values(obj));//["lili", 18, "女"]
+			
+			//4.padStart 可以使用某个字符 补足字符串不足位数，在字符串的前面补
+			//padEnd  可以使用某个字符 补足字符串不足位数，在字符串的后面补
+			console.log('hi'.padStart(10,'*'));
+			console.log('hi'.padEnd(10,'&'));
+			
+			//5. 去掉前后空格 trimStart  trimEnd
+			console.log("            lili           ".trimStart());
+			console.log("            lili           ".trimEnd());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//es5 var 定义变量
+			var aa = 'hello';
+			console.log(aa);
+			
+			//es6 let 定义变量 
+			let bb = "hi";
+			console.log(bb);
+			
+			//var  let 的区别
+			// var name = "小雪";
+			// while(true){
+			// 	var name = "大力";
+			// 	console.log(name);//大力
+			// 	break;
+			// }
+			// console.log(name);//大力
+			
+			//如果 while的里面想要输出 大力，while的外面输出小雪，我们需要使用 let
+			//var  let 的区别
+			let name = "小雪";
+			while(true){
+				let name = "大力";
+				console.log(name);//大力
+				break;
+			}
+			console.log(name);//小雪
+			//注意：var 和 let 的区别是 var 没有块级作用域，而let有块级作用域
+			
+			//例：
+			// var a = [];
+			// for(var i = 0;i<10;i++){
+			// 	a[i] = function(){
+			// 		console.log(i);
+			// 	}
+			// }
+			
+			// a[6]();//10
+			
+			//需求 ：调用 a[6](); 需要输出 6,怎么办？
+			var a = [];
+			for(let i = 0;i<10;i++){
+				a[i] = function(){
+					console.log(i);
+				}
+			}
+			
+			a[6]();//10
+			
+			
+			//在同一个块下不可以定义同样的变量
+			let test = "aaaa";
+			//let test = "bbbbb";//报错  Identifier 'test' has already been declared
+			
+			//const 定义常量的  ，常量的意思是不可被改变的量，所以，常量声明赋值后不能够再进行赋值
+			const PI = 3.14;
+			console.log(PI);
+			//PI = 3.1415926;// 报错： Assignment to constant variable. 
+			
+			//作用：第三方库引入时定义的量
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+			*/
+		   let zoo = {'type':'animal','name':'dog',age:2};
+		   // let type = zoo.type;
+		   // let name = zoo.name;
+		   // let age = zoo.age;
+		   
+		   //以上的赋值语句如果使用 解构来完成，使用一句话即可实现
+		   let {type,name,age} = zoo; //解构的写法
+		   console.log(type,name,age);
+		</script>
+	</body>
+</html>

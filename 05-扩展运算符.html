@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//扩展运算符 ... 他好比reset参数的逆运算，将一个数组转为用逗号分隔的参数序列
+			console.log([1,2,3]);//数组 [1,2,3]
+			console.log(...[1,2,3]);//解构后，打印出逗号分隔的参数序列  1 2 3
+			
+			console.log(1,...[2,3,4],5,6);//1 2 3 4 5 6
+			
+			//扩展运算符使用方式
+			//1.函数调用时使用
+			//函数的作用，往数组中追加内容
+			//...items 接收了 9,8,7 这种写法叫做 rest arguments 可以接收一组数值作为参数
+			function push(array,...items){
+				array.push(...items);
+				return array;
+			}
+			//调用 函数
+			var result = push([1,2],9,8,7);
+			console.log(result);//(5) [1, 2, 9, 8, 7]
+			
+			//2.可以用于替代数组的 apply方法
+			//对一组数找最大值
+			console.log(Math.max(2,9,6,4,5,7));//9
+			//对数组找最大值
+			console.log(Math.max([2,9,6,4,5,7]));//NaN
+			console.log(Math.max.apply(null,[2,9,6,4,5,7]));//9
+			console.log(Math.max(...[2,9,6,4,5,7]));//9 使用扩展运算符可以更简便的解决问题
+			
+			//3.数组连接
+			var arr1 = [1,2,3];
+			var arr2 = [4,5,6];
+			//console.log(arr1.concat(arr2));
+			//使用扩展运算符
+			arr1.push(...arr2);//将 arr2扩展成 单独的数值，再追加到 arr1中
+			console.log(arr1);
+			
+			//4.扩展运算符和解构的使用
+			var [first,...rest] = [1,2,3,4,5,6];
+			//将数组的第一个值赋值给first，将其余的值都赋值给 rest
+			console.log(first);//?1
+			console.log(rest);//?[2,3,4,5,6]
+			
+			var [first1,...rest1] = ["foo"];
+			console.log(first1);//foo
+			console.log(rest1);//[]
+			//注意：扩展运算符的变量必须写在最后一个
+			//var [...rest2,first2] = [1,2,3,4,5,6];//报错：Rest element must be last element
+			
+			
+			//5.扩展运算符将字符串转数组
+			console.log('hello');
+			console.log([...'hello']);//(5) ["h", "e", "l", "l", "o"]
+			
+			//6.在map中可以使用 扩展运算符
+			var map = new Map([
+				[1,'one'],
+				[2,'two'],
+				[3,'three']
+			]);
+			console.log(map);
+			//取map中每一项的key值，组合为数组
+			//map.keys() 可以获取每一项的key
+			console.log([...map.keys()]);
+			console.log([...map.values()]);
+			
+			//generator 
+			var go = function *(){
+				yield 1;
+				yield 2;
+				yield 3;
+			}
+			console.log([...go()]);//[1,2,3]
+		</script>
+	</body>
+</html>

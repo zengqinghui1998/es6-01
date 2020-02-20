@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//es中参数默认值的变通写法
+			// function animal(name){
+			// 	name = name || '狗';//'狗'就以为着是默认值
+			// 	console.log(name);
+			// }
+			
+			// animal("猫");
+			// animal();//没有传参数，函数中的name 接收到的是 undefined.
+			
+			
+			//es6中的函数默认值
+			function animal(name="狗",age=20){//name="狗" 参数的默认值
+				console.log(name);
+			}
+			
+			animal("猫",18);
+			animal();//没有传参数，函数中的name 接收到的是 undefined.
+			/*
+			注意：
+			参数变量是默认声明的，所以不能用let或const再次声明。			使用参数默认值时，函数不能有同名参数。
+			*/
+		</script>
+	</body>
+</html>

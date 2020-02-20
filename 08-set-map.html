@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//es6 set数据类型
+			//定义新的set对象 特点：类似于数组，但里面没有重复的值
+			//所以，可以使用set做去重处理
+			let myset = new Set();
+			[2,3,3,3,3,3,4,4,4,4,5,5,5].forEach(x=>myset.add(x));
+			console.log(myset);//Set(4)size: 4__proto__: Set[[Entries]]: Array(4)0: 21: 32: 43: 5length: 4
+			
+			let set = new Set([1,2,2,2,1,1,4,4,4,4]);
+			console.log(set);//1  2  4  set解构 
+			//将 set转为数组
+			console.log([...set]);
+			
+			
+			//es6  map数据类型  
+			//特点：相当与 object ,但key的值比较多样化
+			let m = new Map();
+			let o = new Object();
+			
+			//给map添加数据 set
+			m.set("name","春天");
+			m.set(1,"我是数字");
+			m.set(o,"我是一个对象");
+			m.set(10.1,{"age":20});
+			//输出
+			console.log(m);
+			//获取map中的值  get 
+			console.log(m.get('name'));
+			console.log(m.get(1));
+			console.log(m.get('1'));//undefined
+			console.log(m.get(o));
+			
+			//has 判断map对象中是否存在相应的键名
+			console.log(m.has(1));//true
+			console.log(m.has("1"));//false
+			
+			//delete 删除
+			m.delete(o);
+			console.log(m);
+			
+			
+		</script>
+	</body>
+</html>
