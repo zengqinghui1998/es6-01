@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#list {width: 600px; min-height: 200px; border:1px dotted blueviolet;}
+		</style>
+	</head>
+	<body>
+		<h2>旅游景点列表</h2>
+		<hr/>
+		<ul id="list"></ul>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//第一页 5条
+				/*
+				1.引入 jquery
+				2.获取了第一页的数据
+				3.将数据写到 页面上
+				*/
+				$.getJSON("json/01.json",function(data){
+					console.log(data);
+					var data = data.matchedProducts;
+					for(var i = 0;i<data.length;i++){
+						let $li = $(`<li>序号：${data[i].collection_num}--标题：${data[i].pro_title}</li>`);
+						//将内容添加到 ul  
+						$('#list').append($li);
+					}
+				})
+				//第二页数据
+				$.getJSON("json/02.json",function(data){
+					console.log(data);
+					var data = data.matchedProducts;
+					for(var i = 0;i<data.length;i++){
+						let $li = $(`<li>序号：${data[i].collection_num}--标题：${data[i].pro_title}</li>`);
+						//将内容添加到 ul  
+						$('#list').append($li);
+					}
+				})
+				//第三页数据
+				$.getJSON("json/03.json",function(data){
+					console.log(data);
+					var data = data.matchedProducts;
+					for(var i = 0;i<data.length;i++){
+						let $li = $(`<li>序号：${data[i].collection_num}--标题：${data[i].pro_title}</li>`);
+						//将内容添加到 ul  
+						$('#list').append($li);
+					}
+				})
+				//问题：因为数据获取是异步的，第一页到第三页的数据顺序没办法规定
+				
+			})
+		</script>
+		
+	</body>
+</html>
